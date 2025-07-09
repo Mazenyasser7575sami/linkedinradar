@@ -45,4 +45,7 @@ require('dotenv').config({ path: './cookies.env' });
   });
 
   fs.writeFileSync('peopleAlsoViewed.json', JSON.stringify(peopleAlsoViewed, null, 2));
-  console.log(
+  console.log("✅ Extracted", peopleAlsoViewed.length, "profiles.");
+
+  await browser.close();
+})();
