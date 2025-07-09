@@ -1,18 +1,13 @@
 {
   "name": "linkedinradar",
   "version": "1.0.0",
-  "description": "",
   "main": "linkedinPeopleAlsoViewed.js",
   "scripts": {
     "start": "node linkedinPeopleAlsoViewed.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "chrome-aws-lambda": "^10.1.0",
-    "puppeteer-core": "^10.1.0",
     "dotenv": "^17.1.0",
-    "fs": "^0.0.1-security"
+    "puppeteer-core": "^10.1.0"
   }
 }
