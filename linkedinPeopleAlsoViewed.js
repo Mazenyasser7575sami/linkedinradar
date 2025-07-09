@@ -8,6 +8,7 @@ require('dotenv').config({ path: './cookies.env' });
     args: chromium.args,
     executablePath: await chromium.executablePath,
     headless: chromium.headless,
+    defaultViewport: chromium.defaultViewport,
   });
 
   const page = await browser.newPage();
@@ -27,7 +28,7 @@ require('dotenv').config({ path: './cookies.env' });
 
   const profileUrl = "https://www.linkedin.com/in/mat%C3%ADas-gonz%C3%A1lez-aa5b4091/";
   await page.goto(profileUrl, { timeout: 0 });
-  await new Promise(resolve => setTimeout(resolve, 8000)); // ندي فرصة لتحميل الصفحة
+  await new Promise(resolve => setTimeout(resolve, 8000));
 
   const peopleAlsoViewed = await page.evaluate(() => {
     const links = [];
@@ -44,5 +45,6 @@ require('dotenv').config({ path: './cookies.env' });
 
   fs.writeFileSync('peopleAlsoViewed.json', JSON.stringify(peopleAlsoViewed, null, 2));
   console.log("✅ Extracted", peopleAlsoViewed.length, "profiles.");
+
   await browser.close();
 })();
