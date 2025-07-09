@@ -1,18 +1,17 @@
 {
   "name": "linkedinradar",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "",
+  "main": "linkedinPeopleAlsoViewed.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node linkedinPeopleAlsoViewed.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "dotenv": "^17.1.0",
     "fs": "^0.0.1-security",
     "puppeteer": "^21.3.8"
-
   }
 }
