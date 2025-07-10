@@ -1,14 +1,11 @@
-const chromium = require('chrome-aws-lambda');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer');
 const fs = require('fs');
 require('dotenv').config({ path: './cookies.env' });
 
 (async () => {
   const browser = await puppeteer.launch({
-    args: chromium.args,
-    executablePath: await chromium.executablePath,
-    headless: chromium.headless,
-    defaultViewport: chromium.defaultViewport,
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
   const page = await browser.newPage();
@@ -45,6 +42,5 @@ require('dotenv').config({ path: './cookies.env' });
 
   fs.writeFileSync('peopleAlsoViewed.json', JSON.stringify(peopleAlsoViewed, null, 2));
   console.log("✅ Extracted", peopleAlsoViewed.length, "profiles.");
-
   await browser.close();
 })();
