@@ -6,7 +6,8 @@ require('dotenv').config({ path: './cookies.env' });
 (async () => {
   const browser = await puppeteer.launch({
     args: chromium.args,
-    executablePath: await chromium.executablePath || '/usr/bin/chromium-browser',
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
     headless: chromium.headless,
   });
 
